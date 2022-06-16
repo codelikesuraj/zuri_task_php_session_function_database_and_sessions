@@ -97,22 +97,25 @@ function getusers(){
     if(mysqli_num_rows($result) > 0){
         while($data = mysqli_fetch_assoc($result)){
             //show data
-            echo "<tr style='height: 30px'>".
-                "<td style='width: 50px; background: blue'>" . $data['id'] . "</td>
-                <td style='width: 150px'>" . $data['full_names'] .
-                "</td> <td style='width: 150px'>" . $data['email'] .
-                "</td> <td style='width: 150px'>" . $data['gender'] . 
-                "</td> <td style='width: 150px'>" . $data['country'] . 
-                "</td>
-                <form action='action.php' method='post'>
-                <input type='hidden' name='id'" .
-                 "value=" . $data['id'] . ">".
-                "<td style='width: 150px'> <button type='submit' name='delete'> DELETE </button>".
-                "</tr>";
+            ?>
+            <tr style='height: 30px'>
+                <td style='width: 50px; background: blue'><?=$data['id']?></td>
+                <td style='width: 150px'><?=$data['full_names']?></td>
+                <td style='width: 150px'><?=$data['email']?></td>
+                <td style='width: 150px'><?=$data['gender']?></td>
+                <td style='width: 150px'><?=$data['country']?></td>
+                <td style='width: 150px'>
+                    <form action='action.php' method='post'>
+                        <input type='hidden' name='id' value="<?=$data['id']?>">
+                        <button type='submit' name='delete'> DELETE </button>
+                    </form>
+                </td>
+            </tr>
+            <?php
         }
         echo "</table></table></center></body></html>";
     } else {
-        echo '<tr><td colspan="5" style="text-align: center; padding:5px">There are no users</td></tr>';
+        echo '<tr><td colspan="6" style="text-align: center; padding:5px">There are no users</td></tr>';
         echo "</table></table></center></body></html>";
         echo "<p><a href='../dashboard.php'>Go to dashboard</a></p>";
     }
