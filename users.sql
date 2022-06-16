@@ -10,7 +10,8 @@ CREATE TABLE students(
     country varchar(32) NOT NULL DEFAULT 'nigeria',
     email varchar(64) NOT NULL,
     gender varchar(32) NOT NULL DEFAULT 'male',
-    password varchar(128) NOT NULL
+    password varchar(128) NOT NULL,
+    dob date DEFAULT '2000-01-01'
 );
 
 INSERT INTO `students` (`id`, `full_names`, `country`, `email`, `gender`, `password`) VALUES

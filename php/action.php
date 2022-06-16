@@ -11,7 +11,8 @@ switch(true){
         $password = sanitize($_POST['password'], FALSE);
         $country = sanitize($_POST['country']);
         $gender = sanitize($_POST['gender']);
-        registerUser($fullnames, $email, $password, $gender, $country);
+        $dob = $_POST['dob'];
+        registerUser($fullnames, $email, $password, $gender, $country, $dob);
         break;
 
     case isset($_POST['login']):
